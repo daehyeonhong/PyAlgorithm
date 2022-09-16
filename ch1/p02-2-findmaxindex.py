@@ -2,10 +2,10 @@
 # output: 최댓값 위치
 
 def find_max(a):
-    max_v_ind = 0
-    for i in range(len(a)):
-        max_v_ind = i if a[i] > a[max_v_ind] else max_v_ind
-    return max_v_ind
+    max_idx = 0
+    for i in range(1, len(a)):
+        max_idx = i if a[i] > a[max_idx] else max_idx
+    return max_idx
 
 
 fst = [1, 92, 18, 33, 58, 7, 33, 42]
