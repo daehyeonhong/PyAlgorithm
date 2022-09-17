@@ -1,10 +1,10 @@
-# input : {n : 배열}
+# input : {arg : 배열}
 # output: 최댓값 위치
 
-def find_max(a):
+def find_max(arg):
     max_idx = 0
-    for i in range(1, len(a)):
-        max_idx = i if a[i] > a[max_idx] else max_idx
+    for i in range(1, len(arg)):
+        max_idx = i if arg[i] > arg[max_idx] else max_idx
     return max_idx
 
 

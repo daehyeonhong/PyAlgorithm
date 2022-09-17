@@ -1,9 +1,9 @@
-# input : {n : 배열}
+# input : {arg : 배열}
 # output: 최댓값
-def find_max(a):
-    max_v = a[0]
-    for i in range(1, len(a)):
-        max_v = a[i] if a[i] > max_v else max_v
+def find_max(arg):
+    max_v = arg[0]
+    for i in range(1, len(arg)):
+        max_v = arg[i] if arg[i] > max_v else max_v
     return max_v
 
 
