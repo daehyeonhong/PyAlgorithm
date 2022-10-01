@@ -1,4 +1,5 @@
 def binary_search(arg, target):
+    print(arg)
     length = len(arg)
     if length == 0:
         return
@@ -7,9 +8,9 @@ def binary_search(arg, target):
     if target == center_value:
         return center
     elif target > center_value:
-        return binary_search(arg[center], target)
-    elif target < center_value:
         return binary_search(arg[center:], target)
+    elif target < center_value:
+        return binary_search(arg[:center], target)
 
 
 arr = [
@@ -58,3 +59,6 @@ arr = [
     988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999]
 binary_search(arr, 0)
 print(arr)
+
+center = len(arr) // 2
+print(arr[:center])
