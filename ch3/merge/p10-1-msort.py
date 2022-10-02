@@ -2,7 +2,7 @@ arr = [6, 8, 3, 9, 10, 1, 2, 4, 7, 5]
 
 
 def merge_sort(arg, num):
-    num+=1
+    num += 1
     length = len(arg)
     if length <= 1:
         return arg
