@@ -1,11 +1,17 @@
 def binary_search_sub(arg, start, end, target):
-    print(f' start : {start}, end : {end}, target : {target}')
     if end - start <= 0:
         return -1
+    if end - start <= 1:
+        if arg[start] == target:
+            return start
+        elif arg[end] == target:
+            return end
+        else:
+            return -1
+
     length = end - start
     center = length // 2 + start
     center_value = arg[center]
-    print(f'center : {center}, center_value : {center_value}, start : {start}, end : {end}')
     if target == center_value:
         return center
     elif target > center_value:
@@ -66,5 +72,12 @@ arr = [
     942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955, 956, 957, 958, 959, 960, 961, 962, 963, 964,
     965, 966, 967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 977, 978, 979, 980, 981, 982, 983, 984, 985, 986, 987,
     988, 989, 990, 991, 992, 993, 994, 995, 996, 997, 998, 999]
-
+arr2 = [1, 4, 7, 9, 22, 33, 66, 89, 334, 745, 1234]
 print(binary_search(arr, 947))
+print(binary_search(arr2, 947))
+print(binary_search(arr2, 4))
+print(binary_search(arr2, 7))
+print(binary_search(arr2, 9))
+print(binary_search(arr2, 22))
+print(binary_search(arr2, 33))
+print(binary_search(arr2, 66))
