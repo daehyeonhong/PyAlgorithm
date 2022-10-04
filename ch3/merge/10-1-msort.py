@@ -13,7 +13,7 @@ def merge_sort(arg):
     ia = 0
     print(f'group1 : {group1}, group2 : {group2}')
     while i1 < len(group1) and i2 < len(group2):
-        if group1[i1] < group2[i2]:
+        if group1[i1] > group2[i2]:
             arg[ia] = group1[i1]
             i1 += 1
             ia += 1
@@ -21,8 +21,8 @@ def merge_sort(arg):
             arg[ia] = group2[i2]
             ia += 1
             i2 += 1
-        sort_left_args(arg, group1, i1, ia)
-        sort_left_args(arg, group2, i2, ia)
+    sort_left_args(arg, group1, i1, ia)
+    sort_left_args(arg, group2, i2, ia)
 
 
 def sort_left_args(arg, group, idx, base):
