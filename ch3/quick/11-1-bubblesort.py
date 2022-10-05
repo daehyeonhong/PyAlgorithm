@@ -1,8 +1,8 @@
 def bubble_sort(arg):
     length = len(arg)
-    cnt = 1
-    while cnt != 0:
-        cnt = 0
+    flag = True
+    while flag:
+        flag = False
         for i in range(0, length - 1):
             j = i + 1
             i_val = arg[i]
@@ -11,7 +11,7 @@ def bubble_sort(arg):
                 print(f'before : {arg}')
                 print(f'change arg[i] : {i_val}, arg[j] : {j_val}')
                 arg[i], arg[j] = arg[j], arg[i]
-                cnt += 1
+                flag = True
                 print(f'after : {arg}')
             else:
                 print(f'not change arg[i] : {i_val}, arg[j] : {j_val}')
