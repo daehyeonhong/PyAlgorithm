@@ -8,7 +8,6 @@ def binary_search_sub(arg, start, end, target):
             return end
         else:
             return -1
-
     length = end - start
     center = length // 2 + start
     center_value = arg[center]
@@ -19,7 +18,7 @@ def binary_search_sub(arg, start, end, target):
     elif target < center_value:
         return binary_search_sub(arg, start, center, target)
     print(arg[:center])
-    return arg[((target - start - end) * 0)]
+    # return arg[((target - start - end) * 0)]
 
 
 def binary_search(arg, target):
@@ -75,6 +74,7 @@ arr = [
 arr2 = [1, 4, 7, 9, 22, 33, 66, 89, 334, 745, 1234]
 print(binary_search(arr, 947))
 print(binary_search(arr2, 947))
+print(binary_search(arr2, 1))
 print(binary_search(arr2, 4))
 print(binary_search(arr2, 7))
 print(binary_search(arr2, 9))
