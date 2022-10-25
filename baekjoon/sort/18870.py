@@ -6,6 +6,6 @@ n = int(input())
 arr = list(map(int, input().split()))
 
 arr2 = sorted(list(set(arr)))
-
+dic = {arr2[i]: i for i in range(len(arr2))}
 for i in arr:
-    print(arr2.index(i), end = ' ')
+    print(dic[i], end=' ')
