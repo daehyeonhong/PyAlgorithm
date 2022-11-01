@@ -11,7 +11,6 @@ for idx in range(N):
     result = 0
     for item in arr[idx]:
         if item == 'X':
-            result + sum_
             sum_ = 0
         else:
             sum_ = sum_ + 1
