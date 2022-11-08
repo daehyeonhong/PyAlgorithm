@@ -1,29 +1,21 @@
+from itertools import permutations
+
 import sys
 
-stdin_readline = sys.stdin.readline
-N = int(stdin_readline())
-arr = list(map(int, stdin_readline().split()))
+# 주어진 값 입력
+n = int(sys.stdin.readline())
+a = list(map(int, sys.stdin.readline().split()))
 
-arr.sort(reverse=True)
-mid = len(arr) // 2
-left = arr[:mid]
-right = arr[mid:]
-left.sort()
-right.sort(reverse=True)
-result = []
-aa = []
-print(right)
-print(left)
-while right or left:
-    if left:
-        result.append(left.pop())
-    if right:
-        result.append(right.pop())
-print(result)
-for i in range(len(result) - 1):
-    res = abs(result[i] - result[i + 1])
-    print(f'{result[i]} - {result[i + 1]} = {res}')
-    aa.append(res)
+# permutation 저장(per: reference of permutation tuples)
+per = permutations(a)
+ans = 0
 
-print(aa)
-print(sum(aa))
+# 순열마다 차이를 더해(s), ans 보다 크면 ans를 update
+for item in per:
+    s = 0
+    for job in range(len(item) - 1):
+        s += abs(item[job] - item[job + 1])
+    if s > ans:
+        ans = s
+
+print(ans)
