@@ -6,7 +6,6 @@ n = int(sys.stdin.readline())
 a = list(map(int, sys.stdin.readline().split()))
 
 ans = 0
-result_item = []
 for item in permutations(a):
     s = 0
     for job in range(len(item) - 1):
@@ -15,5 +14,4 @@ for item in permutations(a):
         result_item = item
         ans = s
 
-print(result_item)
 print(ans)
