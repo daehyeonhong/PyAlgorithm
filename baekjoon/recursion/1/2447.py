@@ -5,7 +5,11 @@ N: int = int(readline())
 stars = [['*' for j in range(N)] for i in range(N)]
 
 mid = 1 * 3 // 2
-stars[1][1] = ' '
+rows = mid
+columns = mid
+for row in range(rows, N, 3):
+    for column in range(columns, N, 3):
+        stars[row][column] = ' '
 
 for star in stars:
     print(star)
