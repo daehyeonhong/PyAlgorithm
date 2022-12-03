@@ -2,10 +2,12 @@ import sys
 
 cnt: int = 0
 K, N = map(int, sys.stdin.readline().split())
+result: int = 0
 
 
 def merge_sort(arg):
     global cnt
+    global result
     length = len(arg)
     if length <= 1:
         return
@@ -22,9 +24,10 @@ def merge_sort(arg):
         if group1[i1] < group2[i2]:
             cnt += 1
             if cnt == N:
-                print(group1[i1])
-            elif cnt > N:
-                print(-1)
+                result = group1[i1]
+                break
+            elif cnt > N or cnt < N:
+                result = -1
                 break
             arg[ia] = group1[i1]
             i1 += 1
@@ -32,9 +35,10 @@ def merge_sort(arg):
         else:
             cnt += 1
             if cnt == N:
-                print(group1[i2])
-            elif cnt > N:
-                print(-1)
+                result = group1[i2]
+                break
+            elif cnt > N or cnt < N:
+                result = -1
                 break
             arg[ia] = group2[i2]
             ia += 1
@@ -52,3 +56,5 @@ def sort_left_args(arg, group, idx, base):
 
 arr = list(map(int, sys.stdin.readline().split()))
 merge_sort(arr)
+
+print(result)
