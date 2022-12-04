@@ -26,7 +26,7 @@ def merge_sort(arg):
             if cnt == N:
                 result = group1[i1]
                 break
-            elif cnt > N or cnt < N:
+            elif cnt > N :
                 result = -1
                 break
             arg[ia] = group1[i1]
@@ -37,7 +37,7 @@ def merge_sort(arg):
             if cnt == N:
                 result = group1[i2]
                 break
-            elif cnt > N or cnt < N:
+            elif cnt > N :
                 result = -1
                 break
             arg[ia] = group2[i2]
