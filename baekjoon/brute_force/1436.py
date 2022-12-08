@@ -1,16 +1,15 @@
 import sys
 
 N: int = int(sys.stdin.readline())
-
-start: int = 666
-count: int = 0
-temp = start
-flag: bool = True
-result = 0
-while flag:
-    temp += 1
-    if "666" in str(temp):
-        count += 1
-    elif count == N:
-        print(temp - 1)
-        break
+base: int = 666
+interval: int = 10
+start: int = base
+while True:
+    end: int = start * interval
+    for i in range(start, end):
+        if str(i).find(str(base)) != -1:
+            N -= 1
+            if N == 0:
+                print(i)
+                exit()
+    start = end
