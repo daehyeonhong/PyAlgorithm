@@ -4,38 +4,30 @@ K, N = map(int, sys.stdin.readline().split())
 result_array = []
 
 
-def merge_sort(arg):
+def merge_sort(arg, num):
+    num += 1
     length = len(arg)
-    if length == 1:
-        return
+    if length <= 1:
+        return arg
     center = length // 2
-    group1 = arg[:center]
-    group2 = arg[center:]
-    merge_sort(group1)
-    merge_sort(group2)
-    i1 = 0
-    i2 = 0
-    ia = 0
-    while i1 < len(group1) and i2 < len(group2):
-        if group1[i1] < group2[i2]:
-            arg[ia] = group1[i1]
-            i1 += 1
-            ia += 1
-        else:
-            arg[ia] = group2[i2]
-            ia += 1
-            i2 += 1
-        sort_left_args(arg, group1, i1, ia)
-        sort_left_args(arg, group2, i2, ia)
+    group1 = merge_sort(arg[:center], num)
+    group2 = merge_sort(arg[center:], num)
+
+    result = []
+    while group1 and group2:
+        pop_ = group1.pop(0) if group1[0] < group2[0] else group2.pop(0)
+        result_array.append(pop_)
+        result.append(pop_)
+    while group1:
+        pop = group1.pop(0)
+        result_array.append(pop)
+        result.append(pop)
+    while group2:
+        pop = group2.pop(0)
+        result_array.append(pop)
+        result.append(pop)
+    return result
 
 
-def sort_left_args(arg, group, idx, base):
-    while idx < len(group):
-        result_array.append(group[idx])
-        arg[base] = group[idx]
-        idx += 1
-        base += 1
-
-
-merge_sort(list(map(int, sys.stdin.readline().split())))
-print(-1 if len(result_array) <= N else result_array[N])
+merge_sort(list(map(int, sys.stdin.readline().split())), 0)
+print(-1 if len(result_array) <= N else result_array[N - 1])
