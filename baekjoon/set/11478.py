@@ -1,12 +1,8 @@
 import sys
-add = sys.stdin.readline().rstrip()
-set_var = set()
-var_str = add
-for first in range(len(add)):
-    for end in range(first ,len(add)):
-        set_var.add(var_str[first:end+1])
-print(len(set_var))
-#0
-#'a,b,a,b,c
-#1
-#'ab'ab' ab bc
+
+str = sys.stdin.readline().strip()
+
+def sumFn(gap):
+    return len({str[i:i+gap] for i in range(len(str)+1-gap)})
+
+print(sum(sumFn(gap) for gap in range(1, len(str)+1)))
