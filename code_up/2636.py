@@ -1,13 +1,13 @@
 import sys
 
-T = int(sys.stdin.readline().rstrip())
+T = int(sys.stdin.readline())
 for idx in range(T):
-    A_SIZE, B_SIZE = map(int, sys.stdin.readline().rstrip().split())
-    A = list(map(int, sys.stdin.readline().rstrip().split()))
-    B = list(map(int, sys.stdin.readline().rstrip().split()))
+    A_SIZE, B_SIZE = map(int, sys.stdin.readline().split())
+    A =sorted( list(map(int, sys.stdin.readline().split())))
+    B =sorted( list(map(int, sys.stdin.readline().split())))
     res = 0
-    for a in A:
-        for b in B:
-            if a > b:
+    for a in range(A_SIZE):
+        for b in range(B_SIZE):
+            if A[a] > B[b]:
                 res += 1
     print(res)
