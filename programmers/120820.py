@@ -1,3 +1,3 @@
 def solution(age):
-    answer = 0
-    return answer
+    this_year = 2022
+    return this_year - age + 1
