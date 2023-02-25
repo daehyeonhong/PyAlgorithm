@@ -1,3 +1,5 @@
+import math
+
+
 def solution(num1, num2):
-    answer = 0
-    return answer
+    return math.floor(num1 / num2 * 1000)
