@@ -1,3 +1,2 @@
 def solution(numbers):
-    answer = 0
-    return answer
+    return sum(numbers) / len(numbers)
