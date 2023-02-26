@@ -1,3 +1,5 @@
+import math
+
+
 def solution(slice, n):
-    answer = 0
-    return answer
+    return math.ceil(n / slice)
