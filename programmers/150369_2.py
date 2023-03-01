@@ -1,30 +1,29 @@
+from collections import deque
+
 def solution(cap, n, deliveries, pickups):
     answer = 0
-    while True:
-        a = 0
-        b = 0
-        length = n
-        isFirst = True
-        for i in reversed(range(length)):
-            deliveries[i] 
-            pickups[i]
-        while pickups and (cap >= a and cap >= b):
-            del_var = deliveries.pop()
-            pic_var = pickups.pop()
-            a += del_var
-            b += pic_var
-            if isFirst:
-                if del_var+pic_var == 0:
-                    length-=1
-                else:
-                    isFirst=False
-        if a > cap or b > cap:
-            deliveries.append(max(a - cap, 0))
-            pickups.append(max(b - cap, 0))
-        answer += length * 2
-        if length <= 0:
-            return answer
-
+    del_dq = deque([])
+    pic_dq = deque([])
+    for (ind, d_count), p_count in zip(enumerate(deliveries),pickups):
+        del_dq += [ind+1]*d_count
+        pic_dq += [ind+1]*p_count
+    while del_dq or pic_dq:
+        del_dist, pic_dist = 0, 0
+        if del_dq:
+            del_dist = del_dq.pop()
+        if pic_dq:
+            pic_dist = pic_dq.pop()
+        answer += max(del_dist,pic_dist)*2
+        for _ in range(cap-1):
+            if del_dq:
+                del_dq.pop()
+            if pic_dq:
+                pic_dq.pop()
+    return answer
+    
+# cap=3
+# [1,1,1,1,0,0,0,0,1,1,1,1]
+# [0,0,0,0,1,1,1,1,0,0,0,0]
 print(solution(4, 2, [6,0,0], [0,0, 0]))
 print(solution(4, 5, [1, 0, 3, 1, 2], [0, 3, 0, 4, 0]), 16)
 print(solution(2, 7, [1, 0, 2, 0, 1, 0, 2], [0, 2, 0, 1, 0, 2, 0]), 30)
